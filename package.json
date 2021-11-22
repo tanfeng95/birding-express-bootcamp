@@ -21,12 +21,15 @@
     "eslint": "^7.14.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.15"
   },
   "type": "module",
   "dependencies": {
-    "ejs": "^3.1.5",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "pg": "^8.5.1"
+    "method-override": "^3.0.0",
+    "pg": "^8.7.1",
+    "table-sort-js": "^1.5.8"
   }
 }

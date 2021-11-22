@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>sightings</title>
+
+  <head>
+  </head>
+
+<body>
+  <div class="container p-2 m-2">
+    <div class='d-flex justify-content-between'>
+      <h1>create new note</h1>
+      <button class="btn btn-primary"><a class="text-white" style="text-decoration:none" href='/'>return to
+          index</a></button>
+    </div>
+    <form action="/note" method="POST" class='mb3-3 m-2 p-2'>
+      <label class='form-label' for="fname">habitat :</label><br />
+      <input class='form-control' type="text" name="habitat" /><br />
+
+      <label class='form-label' for="lname">date:</label><br />
+      <input class='form-control' type="datetime-local" name="date" /><br /><br />
+
+      <label class='form-label' for="lname">appearance:</label><br />
+      <input class='form-control' type="text" name="appearance" /><br /><br />
+
+      <label class='form-label' for="lname">behaviour:</label><br />
+      <input class='form-control' type="text" name="behaviour" /><br /><br />
+
+      <label class='form-label' for="lname">vocalisations:</label><br />
+      <input class='form-control' type="text" name="vocalisations" /><br /><br />
+      <label class='form-label' for="lname">flockSize:</label><br />
+      <input class='form-control' type="number" name="flockSize" value="0" /><br /><br />
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

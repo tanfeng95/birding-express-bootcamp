@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>note</title>
+
+  <head>
+
+  </head>
+
+<body>
+  <div class="container p-2 m-2">
+
+      <div class='d-flex justify-content-between m-2 p-2'>
+        <h1>note data</h1>
+        <button class="btn btn-primary"><a class="text-white" style="text-decoration:none" href='/'>return to
+            index</a></button>
+      </div>
+
+      <ol class="list-group ">
+        <li class="list-group-item">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">note index</div>
+            <%=id%>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">habitat</div>
+            <%=habitat%>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">date </div>
+            <%=date%>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">appearance </div>
+            <%=appearance %>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">behaviour </div>
+            <%=behaviour %>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">vocalisations </div>
+            <%=vocalisations %>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">flocksize </div>
+            <%=flocksize %>
+          </div>
+        </li>
+
+      </ol>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

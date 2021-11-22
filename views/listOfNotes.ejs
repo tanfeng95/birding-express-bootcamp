@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://leewannacott.github.io/table-sort-js/table-sort.js"></script>
+  <title>notes</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center bg-secondary p-2 text-white">
+        <h1>note listing</h1>
+        <button type="button" class="btn btn-primary p-2"><a class='text-white' style="text-decoration:none"
+            href='/note'>create new note</a></button>
+        <button type="button" class="btn btn-primary p-2"><a class='text-white' style="text-decoration:none"
+            href='/login'>login</a></button>
+        <button type="button" class="btn btn-primary p-2"><a class='text-white' style="text-decoration:none"
+            href='/signUp'>sign up</a></button>
+
+          <form action="/logout?_method=DELETE" method="POST">
+            <button class="btn btn-danger" type="submit">logout</button>
+          </form>
+
+        <div>
+          <table class="table table-sort text-white " id="sortTable">
+            <thread class="cw-light" style="cursor: pointer">
+              <tr>
+                <th scope="col" class="order-by-desc">ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">habitat:</th>
+                <th scope="col">appearance</th>
+                <th scope="col">view</th>
+                <th scope="col">put</th>
+                <th scope="col">delete</th>
+              </tr>
+            </thread>
+            <tbody>
+              <% for(var i=0; i<notes.length; i++) {%>
+                <tr>
+                  <td scope="row">
+                    <%= notes[i].id%>
+                  </td>
+                  <td>
+                    <span class='fs-6'>
+                      <%=notes[i].date%>
+                    </span>
+                  </td>
+                  <td>
+                    <span class='fs-6'>
+                      <%=notes[i].habitat%>
+                    </span>
+                  </td>
+                  <td>
+                    <span class='fs-6'>
+                      <%=notes[i].appearance%>
+                    </span>
+                  </td>
+                  <td>
+                    <button class="btn btn-primary">
+                      <a class="text-white" style="text-decoration:none" href='note/<%=notes[i].id%>'>view</a>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-warning">
+                      <a class="text-white" style="text-decoration:none" href='note/<%=notes[i].id%>/edit'>Edit
+                      </a>
+                    </button>
+                  </td>
+                  <td>
+                    <div>
+                      <form action="/note/<%=notes[i].id%>/delete?_method=DELETE" method="POST">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </div>
+
+      </div>
+
+      <script>
+        $('#sortTable').DataTable();
+      </script>
+
+</body>
+
+</html>
