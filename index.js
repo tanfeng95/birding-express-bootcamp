@@ -5,12 +5,32 @@ import cookieParser from 'cookie-parser';
 
 // Initialise DB connection
 const { Pool } = pg;
-const pgConnectionConfigs = {
-  user: 'tanfeng95',
-  host: 'localhost',
-  database: 'birding',
-  port: 5432, // Postgres server always runs on this port by default
-};
+// const pgConnectionConfigs = {
+//   user: 'tanfeng95',
+//   host: 'localhost',
+//   database: 'birding',
+//   port: 5432, // Postgres server always runs on this port by default
+// };
+let pgConnectionConfigs;
+if (process.env.ENV === 'PRODUCTION') {
+  // determine how we connect to the remote Postgres server
+  pgConnectionConfigs = {
+    user: 'postgres',
+    // set DB_PASSWORD as an environment variable for security.
+    password: process.env.DB_PASSWORD,
+    host: 'localhost',
+    database: 'birding',
+    port: 5432,
+  };
+} else {
+  // determine how we connect to the local Postgres server
+  pgConnectionConfigs = {
+    user: 'tanfeng95',
+    host: 'localhost',
+    database: 'birding',
+    port: 5432,
+  };
+}
 const pool = new Pool(pgConnectionConfigs);
 
 const app = express();
@@ -21,6 +41,8 @@ app.use(cookieParser());
 
 const getAllNoteQueryString = 'SELECT * from notes ORDER BY id ASC ';
 let getSingleNoteQueryString = '';
+
+const PORT = process.argv[2];
 
 const getAllNotes = (req, res) => {
   console.log('request came in');
