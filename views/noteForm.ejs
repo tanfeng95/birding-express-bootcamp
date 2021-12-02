@@ -10,36 +10,64 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <title>sightings</title>
 
-  <head>
-  </head>
+
+</head>
+<style>
+  .post-form {
+    width: 100%;
+    max-width: 330vw;
+    padding: 15px;
+    margin: auto;
+
+  }
+</style>
 
 <body>
-  <div class="container p-2 m-2">
-    <div class='d-flex justify-content-between'>
-      <h1>create new note</h1>
-      <button class="btn btn-primary"><a class="text-white" style="text-decoration:none" href='/'>return to
-          index</a></button>
-    </div>
-    <form action="/note" method="POST" class='mb3-3 m-2 p-2'>
-      <label class='form-label' for="fname">habitat :</label><br />
-      <input class='form-control' type="text" name="habitat" /><br />
+  <div class="container ">
+    <%- include('navBar'); -%>
+      <div class='d-flex justify-content-between'>
+        <h1>create new note</h1>
+        <button class="btn btn-primary"><a class="text-white" style="text-decoration:none" href='/'>return to
+            index</a></button>
+      </div>
 
-      <label class='form-label' for="lname">date:</label><br />
-      <input class='form-control' type="datetime-local" name="date" /><br /><br />
+      <form action="/note" method="POST" class='post-form'>
 
-      <label class='form-label' for="lname">appearance:</label><br />
-      <input class='form-control' type="text" name="appearance" /><br /><br />
+        <label class='form-label' for="fname">Behavours:</label><br />
+        <% behaviour.forEach((category)=> { %>
+          <label>
+            <%= category.behaviour %>
+          </label>
+          <input type="checkbox" name="behaviour_id" value="<%= category.id %>" />
+          <% }); %> <br/>
 
-      <label class='form-label' for="lname">behaviour:</label><br />
-      <input class='form-control' type="text" name="behaviour" /><br /><br />
+            <label class='form-label' for="fname">Species name :</label><br />
+            <select name="Species_name" class="form-select">
+              <% species.forEach((specie)=> { %>
+                <option value="<%= specie.id %>">
+                  <%= specie.name %>
+                </option>
+                <% }); %>
+            </select><br />
+            <label class='form-label' for="fname">habitat :</label><br />
+            <input class='form-control' type="text" name="habitat" /><br />
 
-      <label class='form-label' for="lname">vocalisations:</label><br />
-      <input class='form-control' type="text" name="vocalisations" /><br /><br />
-      <label class='form-label' for="lname">flockSize:</label><br />
-      <input class='form-control' type="number" name="flockSize" value="0" /><br /><br />
+            <label class='form-label' for="lname">date:</label><br />
+            <input class='form-control' type="datetime-local" name="date" /><br /><br />
 
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+            <label class='form-label' for="lname">appearance:</label><br />
+            <input class='form-control' type="text" name="appearance" /><br /><br />
+
+            <label class='form-label' for="lname">behaviour:</label><br />
+            <input class='form-control' type="text" name="behaviour" /><br /><br />
+
+            <label class='form-label' for="lname">vocalisations:</label><br />
+            <input class='form-control' type="text" name="vocalisations" /><br /><br />
+            <label class='form-label' for="lname">flockSize:</label><br />
+            <input class='form-control' type="number" name="flockSize" value="0" /><br /><br />
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 
   </div>
 

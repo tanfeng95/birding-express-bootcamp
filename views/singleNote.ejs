@@ -19,57 +19,75 @@
 <body>
   <div class="container p-2 m-2">
 
-      <div class='d-flex justify-content-between m-2 p-2'>
-        <h1>note data</h1>
-        <button class="btn btn-primary"><a class="text-white" style="text-decoration:none" href='/'>return to
-            index</a></button>
-      </div>
+    <div class='d-flex justify-content-between m-2 p-2'>
+      <h1>note data</h1>
+      <button class="btn btn-primary"><a class="text-white" style="text-decoration:none" href='/'>return to
+          index</a></button>
+    </div>
 
-      <ol class="list-group ">
-        <li class="list-group-item">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">note index</div>
-            <%=id%>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">habitat</div>
-            <%=habitat%>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">date </div>
-            <%=date%>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">appearance </div>
-            <%=appearance %>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">behaviour </div>
-            <%=behaviour %>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">vocalisations </div>
-            <%=vocalisations %>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">flocksize </div>
-            <%=flocksize %>
-          </div>
-        </li>
+    <ol class="list-group ">
+      <li class="list-group-item">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">note index</div>
+          <%=note.id%>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">habitat</div>
+          <%=note.habitat%>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">date </div>
+          <%=note.date%>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">appearance </div>
+          <%=note.appearance %>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">behaviour </div>
+          <%=note.behaviour %>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">vocalisations </div>
+          <%=note.vocalisations %>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">flocksize </div>
+          <%=note.flocksize %>
+        </div>
+      </li>
 
-      </ol>
+    </ol>
+    <form action="/note/<%= note.id %>/comment" method="POST" class='post-form'>
+      <input class="form-control" type="hidden" name="id" value="<%= note.id %> ">
+
+      <label class='form-label' for="fname">comment :</label><br />
+      <input class='form-control' type="text" name="comment" /><br />
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div>
+      <h3>comments</h3>
+      <% for(var i=0; i<comments.length; i++) {%>
+        <tr>
+          <td>
+            <%= i+1  %> : 
+            <%= comments[i].commments%> </br>
+          </td>
+        </tr>
+        <% } %>
+    </div>
 
   </div>
 
